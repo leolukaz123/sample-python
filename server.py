@@ -1,19 +1,13 @@
-import os
-import http.server
-import socketserver
+from flask import Flask, request
 
-from http import HTTPStatus
+app = Flask(__name__)
 
+@app.route('/', defaults={'path': ''})
+def hello():
+    name = request.args.get('name', 'World')
+    return 'Hello! you requested ' + ' with name ' + name
 
-class Handler(http.server.SimpleHTTPRequestHandler):
-    def do_GET(self):
-        self.send_response(HTTPStatus.OK)
-        self.end_headers()
-        msg = 'Hello! you requested %s' % (self.path)
-        self.wfile.write(msg.encode())
-
-
-port = int(os.getenv('PORT', 80))
-print('Listening on port %s' % (port))
-httpd = socketserver.TCPServer(('', port), Handler)
-httpd.serve_forever()
+if __name__ == "__main__":
+    port = int(os.getenv('PORT', 5000))
+    print('Listening on port %s' % (port))
+    app.run(host='0.0.0.0', port=port)
