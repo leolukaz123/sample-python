@@ -4,7 +4,7 @@ info:
   description: A plugin that allows the user to create slides using ChatGPT. It allows you to say different things and it will return the right slides back. You should share the link to the slides so the user can download them
   version: 'v1'
 servers:
-  - url: http://localhost:5003
+  - url: http://localhost:80
 paths:
   /presentation/link:
     post:

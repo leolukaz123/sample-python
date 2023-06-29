@@ -1,2 +1,6 @@
-Flask
+quart
+quart-cors
+lxml
+Pillow
 python-pptx
+boto3
