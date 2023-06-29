@@ -3,7 +3,7 @@ import os
 
 app = Flask(__name__)
 
-@app.route('/', defaults={'path': ''})
+@app.route('/')
 def hello():
     name = request.args.get('name', 'World')
     return 'Hello! you requested ' + ' with name ' + name
