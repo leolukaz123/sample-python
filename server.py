@@ -9,6 +9,6 @@ def hello():
     return 'Hello! you requested ' + ' with name ' + name
 
 if __name__ == "__main__":
-    port = int(os.getenv('PORT', 5000))
+    port = int(os.getenv('PORT', 80))
     print('Listening on port %s' % (port))
     app.run(host='0.0.0.0', port=port)
